@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+    nextjs-app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: next-oauth-google
+        ports:
+            - '3000:3000'
+        environment:
+            - NODE_ENV=development
+        restart: unless-stopped

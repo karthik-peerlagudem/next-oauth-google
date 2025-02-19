@@ -75,7 +75,7 @@ export async function GET(request: NextRequest) {
         const response = NextResponse.redirect(homepageUrl, {
             status: 302,
         });
-        // Set session cookie with user data
+        // Set session cookie with user daxta
         response.cookies.set('session', JSON.stringify(session), {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
