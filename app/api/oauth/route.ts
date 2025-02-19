@@ -69,8 +69,10 @@ export async function GET(request: NextRequest) {
             picture: userData.picture,
         };
 
+        const homepageUrl = process.env.HOMEPAGE || '';
+
         // Create the response
-        const response = NextResponse.redirect(`${process.env.HOMEPAGE}`, {
+        const response = NextResponse.redirect(homepageUrl, {
             status: 302,
         });
         // Set session cookie with user data
