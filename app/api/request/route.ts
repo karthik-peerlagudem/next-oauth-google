@@ -16,7 +16,6 @@ export async function POST() {
         );
 
         const authorizeUrl = oAuth2Client.generateAuthUrl({
-            access_type: 'offline',
             scope: [
                 'https://www.googleapis.com/auth/userinfo.profile',
                 'openid',

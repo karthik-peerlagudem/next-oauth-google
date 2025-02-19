@@ -4,19 +4,19 @@ A modern Next.js 14 application demonstrating secure Google OAuth authentication
 
 ## Key Features
 
-- 🔐 Google OAuth2 Authentication
-- 🍪 Secure cookie-based sessions
-- 🛡️ Protected routes with middleware
-- 📱 Responsive dashboard
-- 🔄 Type-safe with TypeScript
-- ⚡ Built with Next.js 14 App Router
+-   🔐 Google OAuth2 Authentication
+-   🍪 Secure cookie-based sessions
+-   🛡️ Protected routes with middleware
+-   📱 Responsive dashboard
+-   🔄 Type-safe with TypeScript
+-   ⚡ Built with Next.js 14 App Router
 
 ## Tech Stack
 
-- Next.js 14
-- TypeScript
-- Google OAuth2
-- Tailwind CSS
+-   Next.js 14
+-   TypeScript
+-   Google OAuth2
+-   Tailwind CSS
 
 ## Getting Started
 
@@ -33,7 +33,6 @@ CLIENT_ID=your_google_client_id
 CLIENT_SECRET=your_google_client_secret
 REDIRECT_URI=http://localhost:3000/api/oauth
 HOMEPAGE=http://localhost:3000
-OAUTH_AUTHORIZATION_URI=http:localhost:3000/api/request
 ```
 
 Run the development server:

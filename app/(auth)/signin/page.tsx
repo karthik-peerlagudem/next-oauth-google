@@ -1,15 +1,10 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
-import { config } from 'dotenv';
-
-config({ path: '.env' });
 
 export const SignInPage = () => {
-    const uri = `${process.env.OAUTH_AUTHORIZATION_URI}`;
-
     const handleLogin = async () => {
-        const response = await fetch(uri, {
+        const response = await fetch('/api/request', {
             method: 'POST',
         });
 
