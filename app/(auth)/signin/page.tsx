@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
 
-export const SignInPage = () => {
+const SignInPage = () => {
     const handleLogin = async () => {
         const response = await fetch('/api/request', {
             method: 'POST',
