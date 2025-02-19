@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 
 const SignInPage = () => {
     const handleLogin = async () => {
+        console.log('requesting authorization url');
         const response = await fetch('/api/request', {
             method: 'POST',
         });

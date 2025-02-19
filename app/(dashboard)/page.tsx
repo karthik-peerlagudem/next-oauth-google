@@ -16,6 +16,7 @@ export default async function HomePage() {
         : null;
 
     if (!userData) {
+        console.log('redirecting to signin');
         redirect('/signin');
     }
 

@@ -8,6 +8,7 @@ config({ path: '.env' });
 export async function POST() {
     try {
         const redirectUrl = process.env.RE_DIRECT_URI;
+        console.log(`API Request: redirect url - ${redirectUrl}`);
 
         const oAuth2Client = new OAuth2Client(
             process.env.CLIENT_ID,
@@ -22,6 +23,8 @@ export async function POST() {
             ].join(' '),
             prompt: 'consent',
         });
+
+        console.log(`API Request: authorize url - ${authorizeUrl}`);
 
         return NextResponse.json(
             { url: authorizeUrl },

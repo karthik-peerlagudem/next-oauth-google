@@ -39,6 +39,8 @@ export async function GET(request: NextRequest) {
         const { searchParams } = new URL(request.url);
 
         const code = searchParams.get('code');
+        console.log(`API Oauth: code - ${code}`);
+
         if (!code) {
             return NextResponse.json(
                 { error: 'Code not found' },
@@ -47,6 +49,7 @@ export async function GET(request: NextRequest) {
         }
 
         const redirectUrl = process.env.RE_DIRECT_URI;
+        console.log(`API Oauth: redirect url - ${redirectUrl}`);
 
         const oAuth2Client = new OAuth2Client(
             process.env.CLIENT_ID,
@@ -57,10 +60,8 @@ export async function GET(request: NextRequest) {
         const res = await oAuth2Client.getToken(code);
         await oAuth2Client.setCredentials(res.tokens);
 
-        // Get user data
         const userData = await getUserData(res.tokens.access_token!);
 
-        // Create a session object with necessary user info
         const session = {
             accessToken: res.tokens.access_token,
             userId: userData.sub,
@@ -70,17 +71,17 @@ export async function GET(request: NextRequest) {
         };
 
         const homepageUrl = process.env.HOMEPAGE || '';
+        console.log(`API Oauth: homepage url - ${homepageUrl}`);
 
-        // Create the response
         const response = NextResponse.redirect(homepageUrl, {
             status: 302,
         });
-        // Set session cookie with user daxta
+
         response.cookies.set('session', JSON.stringify(session), {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'lax',
-            maxAge: 60 * 60 * 24, // 24 hours
+            maxAge: 60 * 60 * 24,
             path: '/',
         });
 
